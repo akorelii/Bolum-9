@@ -2,7 +2,7 @@
  
 $uye = [
     'kullanici_adi' => 'admin',
-    'sifre' => '123'
+    'sifre' => '1234'
 ];
 
 ?>
