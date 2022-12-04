@@ -1,1 +1,4 @@
-selam 
+<?php
+
+echo 'selam ';
+?>
