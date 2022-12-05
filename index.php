@@ -1,6 +1,16 @@
 <?php
 session_start();
+//yonlendırme hatası alırsan ob_start(); ekle
 require 'ayarlar.php';
+
+if (isset($_SESSION['zaman']) && time() > $_SESSION['zaman']){
+    session_destroy();
+    header('Location:/bolum-9/oturum_sonlandi.php');
+}else {
+    $_SESSION['zaman'] = time() + 10;
+}
+
+
 ?>
 
 <!DOCTYPE html>

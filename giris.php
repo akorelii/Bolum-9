@@ -6,22 +6,26 @@ if (isset($_POST['submit'])){
     $sifre = $_POST['sifre'];
 
     if(!$kullanici_adi || !$sifre){
-        $hata = 'Lutfen kullanıcı adi ya da  sifrenizi giriniz';
-    } elseif ($kullanici_adi != $uye['kullanici_adi']){
+        $hata = 'Lütfen kullanıcı adi ya da  sifrenizi giriniz';
+    } elseif ( $kullanici_adi != $uye['kullanici_adi']){
         $hata = 'Kullanıcı adınız hatalı.';
-    } elseif ($sifre != $uye['sifre']){
-        $hata = 'Sifreniz hatalı.';
+    } elseif ( $sifre != $uye['sifre']){
+        $hata = 'Şifreniz hatalı.';
     } else {
 
+        $_SESSION['zaman'] = time() + 10;
+        $_SESSION['kullanici_adi'] = $uye['kullanici_adi'];
+        
+        //header() -> yonlendırme icin, ilerde detaylı gorulecek
+        header('Location:/bolum-9');
 
     } 
 }
 
-
 ?>
 
 <?php if (isset($hata)):  ?>
-    <div style="border: 1 px solid red">
+    <div style="background-color: red; color: black; padding: 2px;">
         <?php echo $hata; ?>
     </div>
 <?php endif; ?>
